@@ -13,7 +13,7 @@ Account setup
 ~~~~~~~~~~~~~
 
 In order to use this module, you should have obtained a PageKite account. They
-are available for a small fee on <https://pagekite.net/>. You can set up and
+are available for a small fee on https://pagekite.net/. You can set up and
 host your own frontend as well, but this guide assumes that you are using the
 default provider.
 
@@ -27,7 +27,7 @@ Add-on installation
 
 This add-on is published in the author's `personal repository`_. You can
 install it by going to your hass.io dashboard's add-on store page, adding the
-URI <https://gitlab.com/chrysn/hassio-addons> as a new repository, clicking on
+URI https://gitlab.com/chrysn/hassio-addons as a new repository, clicking on
 the PageKite add-on and pressing the install button.
 
 Configuration
@@ -56,3 +56,14 @@ services or to configure your own kite frontend.
 
 .. _`your account page`: https://pagekite.net/home/
 .. _`personal repository`: https://gitlab.com/chrysn/hassio-addons
+
+License
+-------
+
+This hass.io module was written by chrysn <chrysn@fsfe.org> and is
+published under the terms of the GNU AGPL version 3 or later, as described on
+https://www.gnu.org/licenses/agpl-3.0.en.html.
+
+The shipped pagekite software was written by the Beanstalks Project ehf. and
+Bjarni Runar Einarsson, and is published under the same license (see
+``src/pagekite.py`` for details).
