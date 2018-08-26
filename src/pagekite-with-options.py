@@ -29,10 +29,14 @@ if not kitesecret or kitesecret == u"<Fill this in from your pagekite account>":
     print("Wrapper error: kitesecret needs to be set.")
     configerrors = True
 
+ssh = bool(config.get('ssh'))
+
 if configerrors:
     sys.exit(1)
 
 pagekiteargs = ["--clean", "--defaults", "--service_on", "http:" + kitename + ":localhost:8123:" + kitesecret]
+if ssh:
+    pagekiteargs.extend(["--service_on", "ssh:" + kitename + ":localhost:22:" + kitesecret])
 pyargs = ["/src/pagekite.py"] + pagekiteargs
 args = ["/usr/bin/python2"] + pyargs
 # print("Execing", " ".join(args))

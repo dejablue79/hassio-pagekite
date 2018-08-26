@@ -9,10 +9,12 @@
   "host_network": true,
   "options": {
     "kitename": "<your kitename here>.pagekite.me",
-    "kitesecret": "<Fill this in from your pagekite account>"
+    "kitesecret": "<Fill this in from your pagekite account>",
+    "ssh": true
   },
   "schema": {
     "kitename": "str",
-    "kitesecret": "str"
+    "kitesecret": "str",
+    "ssh": "bool"
   }
 }
