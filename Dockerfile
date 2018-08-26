@@ -5,4 +5,6 @@ ENV LANG C.UTF-8
 
 RUN apk add python2
 
-CMD [ "python2 -c 'print \'Hello World\''" ]
+COPY src/* /src/
+
+CMD /usr/bin/python2 /src/pagekite-with-options.py

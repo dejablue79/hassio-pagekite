@@ -2,11 +2,17 @@
   "name": "PageKite",
   "version": "1",
   "slug": "pagekite",
-  "description": "the fast, reliable localhost tunneling solution",
+  "description": "The fast, reliable localhost tunneling solution",
   "url": "https://gitlab.com/chrysn/hassio-pagekite",
   "startup": "before",
   "boot": "auto",
   "host_network": true,
-  "options": {},
-  "schema": {}
+  "options": {
+    "kitename": "<your kitename here>.pagekite.me",
+    "kitesecret": "<Fill this in from your pagekite account>"
+  },
+  "schema": {
+    "kitename": "str",
+    "kitesecret": "str"
+  }
 }
