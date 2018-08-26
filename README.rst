@@ -25,22 +25,25 @@ account page`_.
 Add-on installation
 ~~~~~~~~~~~~~~~~~~~
 
-TBD
+This add-on is published in the author's `personal repository`_. You can
+install it by going to your hass.io dashboard's add-on store page, adding the
+URI <https://gitlab.com/chrysn/hassio-addons> as a new repository, clicking on
+the PageKite add-on and pressing the install button.
 
 Configuration
 ~~~~~~~~~~~~~
 
-When you have enabled the add-on, its configuration needs to be updated. Fill
+After you have enabled the add-on, its configuration needs to be updated. Fill
 in your kite name and kiet secret from the account setup in the add-on's config
 section under respective default entries.
 
 When you have entered and saved those values, you can start the service and
-access your home assistant installation on ``https://<your-name>.pagekite.me``.
-Note that the HTTPS server is set up by pagekite.me; there is no need to set up
-any Let's Encrypt or similar HTTPS certificate provider locally, but that also
-means that the connection is only encrypted between the user and pagekite.me
-and between pagekite.me and your Home Assistant installation, not all the way
-through.
+access your home assistant installation on ``https://<your-name>.pagekite.me``
+(no ``:8123``!).  Note that the HTTPS server is set up by pagekite.me; there is
+no need to set up any Let's Encrypt or similar HTTPS certificate provider
+locally, but that also means that the connection is only encrypted between the
+user and pagekite.me and between pagekite.me and your Home Assistant
+installation, not all the way through.
 
 By default, both the default Home Assistant port (8123) and the SSH port (22)
 are published under your kite name (the latter requires the SSH server add-on
@@ -48,7 +51,8 @@ to be actually usable); you can disable them individually.
 
 If you need additional configuration, you can add a ``default-override`` record
 to your configuration. This allows you to change the default flags which are
-passed on to pagekite (``--clean --defaults``); use this to enable additional
+passed on to pagekite (``"--clean --defaults"``); use this to enable additional
 services or to configure your own kite frontend.
 
 .. _`your account page`: https://pagekite.net/home/
+.. _`personal repository`: https://gitlab.com/chrysn/hassio-addons
