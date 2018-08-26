@@ -10,11 +10,14 @@
   "options": {
     "kitename": "<your kitename here>.pagekite.me",
     "kitesecret": "<Fill this in from your pagekite account>",
+    "home-assistant": true,
     "ssh": true
   },
   "schema": {
     "kitename": "str",
     "kitesecret": "str",
-    "ssh": "bool"
+    "home-assistant": "bool",
+    "ssh": "bool",
+    "default-override": "str?"
   }
 }

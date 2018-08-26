@@ -9,13 +9,14 @@ from __future__ import unicode_literals, print_function
 
 import os
 import sys
+import shlex
 
 import json
 
 config = json.load(open("/data/options.json"))
 
-print("Read configuration:")
-print(repr(config))
+# print("Read configuration:")
+# print(repr(config))
 
 configerrors = False
 
@@ -29,16 +30,20 @@ if not kitesecret or kitesecret == u"<Fill this in from your pagekite account>":
     print("Wrapper error: kitesecret needs to be set.")
     configerrors = True
 
+home_assistant = bool(config.get('home-assistant'))
 ssh = bool(config.get('ssh'))
+default_override = shlex.split(config.get('default-override', ""))
 
 if configerrors:
     sys.exit(1)
 
-pagekiteargs = ["--clean", "--defaults", "--service_on", "http:" + kitename + ":localhost:8123:" + kitesecret]
+pagekiteargs = default_override or ["--clean", "--defaults"]
+if home_assistant:
+    pagekiteargs.extend(["--service_on", "http:" + kitename + ":localhost:8123:" + kitesecret])
 if ssh:
     pagekiteargs.extend(["--service_on", "ssh:" + kitename + ":localhost:22:" + kitesecret])
 pyargs = ["/src/pagekite.py"] + pagekiteargs
 args = ["/usr/bin/python2"] + pyargs
-# print("Execing", " ".join(args))
+print("Starting pagekite with arguments:", pagekiteargs)
 sys.stdout.flush()
 os.execv(args[0], args)
